@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Webpage</title>
+    <link rel="stylesheet" href="#">
+    <style>
+        /* styles.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #b3a1a1;
+    color: #fff;
+    border:solid #555;
+}
+header:hover{
+    background-image: url("D:\picnic_photos\enhanced-image (2).png");
+}
+header .box{
+    width: 20px;
+    height: 20px;
+    background-color: #ef1414;
+    align-self: flex-start;
+   
+}
+header .box:hover{
+    background-color: #050505;
+}
+header  .logo{
+    border:solid #d71616;
+}
+header .logo{
+    height: 50px;
+   /* border: solid black;*/
+   /* margin-right: 73%;*/
+}
+
+.logo img {
+    height: 50px;
+    
+}
+
+header .navi{
+   /* border:solid #555;*/
+    margin-right:50% ;
+    margin-left: 20%;
+    width: 50%;
+    align-self: center;
+}
+.navi:hover{
+    background-color: #4e4444;
+
+}
+ header nav li a{
+    justify-content: center;
+ }
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+
+    text-decoration: underline;
+    background-color: #555;
+    color: rgb(232, 232, 27);
+    border-radius: 5px;
+}
+
+main {
+    display: flex;
+    justify-content: inline;
+    width: 100%;
+    height: 500px;
+    background-color: beige;
+}
+main section{
+    width: 25%;
+}
+
+#home{
+    padding: 5pxpx;
+    margin-right: 2px;
+    background-color: #a07777;
+}
+#home:hover{
+    
+    background-color: #c8f610;
+}
+#home img{
+    height: 50%;
+    width: 100%;
+}
+#about{
+    padding: 2px;
+    margin-right: 2px;
+    background-color: rgb(153, 178, 199);
+}
+#about:hover{
+    background-color: rgb(249, 19, 168);
+}
+#services{
+    padding: 2px;
+    margin-right: 2px;
+    background-color: rgb(120, 154, 154);
+}
+#services:hover{
+    background-color: rgb(23, 237, 237);
+}
+#contact{
+    padding: 2px;
+    margin-right: 2px;
+    background-color: blanchedalmond;
+}
+#contact:hover{
+    background-color: rgb(213, 88, 25);
+}
+footer {
+    background-color:#b3a1a1;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    border: #050505 5px;
+    justify-content: center;
+}
+footer:hover{
+    background-color: #888860;
+    
+}
+footer p{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    font-size: 30px;
+    
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="box">
+
+        </div>
+        <div class="logo">
+            <img src="\parag_sir_hw\logo.png" alt="Logo">
+        </div>
+          <div  class="navi">
+            <div class="navi2">
+             <p></p>
+          </div>
+          <hr>
+         <div class="navigation">
+         <nav>
+             <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+             </ul>
+            </nav>
+          </div>
+         </div>
+    </header>
+    
+    <main>
+        <section id="home">
+            <h1>Welcome to Our Website</h1>
+            <p>This is the home section.</p>
+            <img src="\parag_sir_hw\image_at_infinity.png" alt="home">
+        </section>
+        <section id="about">
+            <h1>About Us</h1>
+            <p>This is the about section.</p>
+        </section>
+        <section id="services">
+            <h1>Our Services</h1>
+            <p>This is the services section.</p>
+        </section>
+        <section id="contact">
+            <h1>Contact Us</h1>
+            <p>This is the contact section.</p>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="foot1">
+           <p> web page is just a assingment</p>
+           <hr color="black">
+        </div>
+        <div class="foot2">
+            <p>somethig is bettr than nothing</p>
+        </div>
+        <link rel="stylesheet" href="\projectsforojt\node_modules\.bin">
+    </footer>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function setlocal(){
+
+            const user = { name: 'John', age: 30 };
+            localStorage.setItem('Name', 'Sudip');
+            localStorage.setItem('user1', JSON.stringify(user));
+            hello=localStorage.getItem(user);
+            console.log(user);
+            document.write(user.name +"<br>");
+            document.write(user.age);
+            //localStorage.removeItem('user1')
+            localStorage.clear();
+        }
+        setlocal();
+        
+    </script>
+    
+</body>
+</html>

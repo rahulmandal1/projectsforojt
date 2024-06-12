@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(220, 193, 157);
+        }
+        #first {
+            background-color: rgb(230, 228, 191);
+            height: 50%;
+            width: 50%;
+            display: block;
+            justify-self: center;
+            border-radius: 20px;
+            padding: 20px;
+            margin: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            display: block;
+            width: calc(100% - 40px);
+            margin: 10px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #adcbcf;
+            border-radius: 20px;
+            height: 40px;
+            margin: 10px auto;
+            width: calc(100% - 40px);
+            display: block;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #9cb8bf;
+        }
+    </style>
+</head>
+<body>
+    <div id="first">
+        <form id="contactform">
+            <label for="ID">ID NO:</label>
+            <input type="number" id="ID">
+            <label for="name">Name:</label>
+            <input type="text" id="name">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone">
+        </form>
+        <button id="submit" onclick="storeItem()">Submit</button>
+        <button id="delete" onclick="deletesItem()">Delete</button>
+        <button id="update" onclick="update()">Update</button>
+        <button id="read" onclick="readItem()">Read</button>
+        <button id="deleteField" onclick="deleteField()">Delete Field</button>
+        <button id="editField" onclick="editField()">Edit Field</button>
+        <button id="deleteByField" onclick="deleteItemByField()">Delete by Field</button>
+    </div>
+
+    <script>
+function storeItem() {
+    const ID = document.getElementById('ID').value;
+    const name1 = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const phone = document.getElementById('phone').value;
+    const user = {'Name': name1, 'Email': email, 'Password': password, 'Phone': phone};
+    localStorage.setItem(ID, JSON.stringify(user));
+    alert('files are submitted');
+}
+
+function deletesItem() {
+    const ID = document.getElementById('ID').value;
+    localStorage.removeItem(ID);
+}
+
+function update() {
+    const ID = document.getElementById('ID').value;
+    const user = localStorage.getItem(ID);
+    if (user) {
+        storeItem();
+    } else {
+        alert('User not found');
+    }
+}
+
+function readItem() {
+    const ID = document.getElementById('ID').value;
+    const user = localStorage.getItem(ID);
+    if (user) {
+        const userData = JSON.parse(user);
+        alert(`Name: ${userData.Name}, Email: ${userData.Email}, Phone: ${userData.Phone}`);
+    } else {
+        alert('User not found');
+    }
+}
+
+function deleteField() {
+    const ID = document.getElementById('ID').value;
+    const user = localStorage.getItem(ID);
+    if (!user) {
+        alert('User not found');
+        return;
+    }
+    const userData = JSON.parse(user);
+    const field = prompt("Enter the field you want to delete (Name, Email, Password, Phone):");
+    if (userData.hasOwnProperty(field)) {
+        delete userData[field];
+        localStorage.setItem(ID, JSON.stringify(userData));
+        alert(`${field} deleted successfully`);
+    } else {
+        alert(`Field ${field} not found`);
+    }
+}
+
+function editField() {
+    const ID = document.getElementById('ID').value;
+    const user = localStorage.getItem(ID);
+    if (!user) {
+        alert('User not found');
+        return;
+    }
+    const userData = JSON.parse(user);
+    const field = prompt("Enter the field you want to edit (Name, Email, Password, Phone):");
+    if (userData.hasOwnProperty(field)) {
+        const newValue = prompt(`Enter new value for ${field}:`);
+        userData[field] = newValue;
+        localStorage.setItem(ID, JSON.stringify(userData));
+        alert(`${field} updated successfully`);
+    } else {
+        alert(`Field ${field} not found`);
+    }
+}
+
+function deleteItemByField() {
+    const field = prompt("Enter the field you want to search by (Name, Email, Phone):");
+    const value = prompt(`Enter the value of the ${field} you want to delete:`);
+    let found = false;
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const user = JSON.parse(localStorage.getItem(key));
+        if (user[field] === value) {
+            localStorage.removeItem(key);
+            alert(`User with ${field} ${value} deleted successfully`);
+            found = true;
+            break;
+        }
+    }
+    if (!found) {
+        alert(`No user found with ${field} ${value}`);
+    }
+}
+    </script>
+</body>
+</html>
